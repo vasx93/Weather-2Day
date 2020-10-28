@@ -1,0 +1,105 @@
+@import 'main.css';
+
+/*?                       DAILY FORECAST                   */
+
+.daily-forecast {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+  padding: 0.5rem;
+  
+}
+
+.card {
+  background-color: ivory;
+  padding: 0.5rem;
+  border-radius: 10px;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+}
+
+
+.front {
+  width: 100%;
+  height: 100%;
+  /* color: var(--main-font-color); */
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+}
+.week {
+  font-weight: bold;
+  
+}
+
+.icon img {
+  height: 40px;
+  
+}
+
+.current {
+  padding: 1rem auto;
+  text-align: center;
+  margin: 1rem auto 1.1rem auto;
+}
+
+.current h1 {
+  text-align: center;
+  font-size: 2rem;
+    
+    
+}
+.current p  {
+  font-size: 1.1rem;
+}
+
+.forecast {
+  width: 100%;
+  font-family: 'Roboto Slab', serif; ;
+}
+
+.forecast li {
+  padding: 10px 0;
+   border-bottom: 2px solid #D3D3D3;
+   display: flex;
+   
+   
+    
+}
+.forecast li:last-child
+{
+    border-bottom: none;
+}
+.forecast li .left
+{
+    width: 50%;
+}
+.forecast li .right
+{
+    width: 50%;
+    text-align: right;
+}
+
+
+
+
+
+
+
+
+
+

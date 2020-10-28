@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-bg-color: #DDE4E6;
+    --main-font-color: #736C9E;
+    --darker-font-color: #1B0066;
+    --acent-color: #FFA266;
+    --black: #333333;
+    
+    --lavander: #957DAD;
+    --green: #527D1A;
+}
+
+
+body, html {
+    background-color: var(--main-font-color);
+    /* background-color: var(--lavander); */
+    color: white;
+    font-family: arial;
+    overflow: hidden;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+  }
+
+.body-wrap {
+    max-width: 1140px;
+    margin: auto;
+    ;
+}
+
+header span {
+    background: rgb(197,191,191);
+    background: linear-gradient(45deg, rgba(197,191,191,0.7515641116024403) 0%, rgba(253,0,0,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+.gradient {
+    
+    background: rgb(197,191,191);
+    background: linear-gradient(45deg, rgba(197,191,191,0.7515641116024403) 0%, rgba(253,0,0,1) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    max-width: 1140px;
+    width: 100%;
+    height: 2rem;
+    border-top: 2px solid #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+footer p {
+   letter-spacing: 2px;
+ }
+
+.about-note {
+    margin: 2rem ;
+    text-align: center;
+    letter-spacing: 3px;
+    /* font-weight: bold; */
+    line-height: 2rem;
+    font-size: 1.3rem;
+}
+  
+.portrait {
+    width: 250px;
+    height: 250px;
+    margin-top: 3rem;
+    
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/**             open weather widget */
+
+.widget-right__logo_black_small,
+.widget-right__date {
+    display: none ;
+}
+
+#openweathermap-widget-15,
+#openweathermap-widget-19 {
+    margin: 0rem;
+    z-index: 2;
+}
+
+/*?         HEADER AND MAIN CONTENT AREA            */
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-weight: bolder;
+    border-bottom: 2px solid #eeeeee;
+    padding: 0.5rem;
+}
+
+/**             BACKGROUND IMG */
+/* .main-content:before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+    background: url('../img/rainy-weather.png') no-repeat center center/cover;
+} */
+
+header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    z-index: 2;
+    margin: 0;
+    padding-bottom: 0.5rem;
+}
+
+header h1 {
+    font-size: 4rem;
+    letter-spacing: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    z-index: 5;
+    text-align: right;
+    
+}
+
+.link-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.links a {
+    color: white;
+    padding: 0px 8px 0px 0px;
+    text-decoration: none;
+    font-weight: bold;
+}
+.links a:hover {
+    color: #343434;
+}
+
+/* .links a:hover {
+    transform: scale(1.05);
+} */
+
+.social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0.5rem;
+}
+.social a:hover{
+    
+    transform: scale(1.1);
+}
+.social .fa {
+    color: white;
+    padding: 0px 5px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0px 5px 0px 0px;
+}
+
+
+/* about page  */
+.main-content p {
+    margin: 2rem ;
+    text-align: center;
+}
+
+.portrait {
+    width: 250px;
+}
+
+
+/*?                  form input and button                          */
+#first {
+    margin-top: 1rem;
+    font-weight: bolder;
+    letter-spacing: 3px;
+    font-size: 1.2rem;
+}
+.search-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.main-search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form {
+    margin: 0.5rem auto;
+    display: flex;
+    justify-content: center;
+    
+}
+form input  {
+    height: 2.2rem;
+    padding: 8px;
+    margin-right: 2rem;
+    border:  none;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1.1rem;
+}
+
+button {
+    cursor: pointer;
+    color: var(--main-font-color);
+    background-color: white;
+    height: 2.2rem;
+    width: 2rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.fa-search {
+    -webkit-transition: 0.7s ease-out;
+    -moz-transition: 0.7s ease-out;
+    -o-transition: 0.7s ease-out;
+    transition: 0.7s ease-out;
+}
+.flip {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+
+
+button, button:active, button:focus, button:hover {
+    outline: none ;
+    outline: 0px ;
+}
+
+#search-form p {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: 3px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

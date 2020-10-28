@@ -1,0 +1,120 @@
+@import 'main.css';
+
+/*?   ------------------     FORECAST     -----------      */
+
+.weather-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.card {
+  background-color:  ivory;
+  color: #333;
+  border-radius: 10px;
+  padding: 0.5rem;
+  width: 70%;
+  height: 100%;
+  box-shadow:
+  0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12);
+  margin-top: 2rem;
+}
+
+.front {
+  display: grid;
+  grid-template-columns: 1fr;
+  /* flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  
+}
+
+.top {
+  width: 100%;
+}
+
+.week {
+  font-weight: 600;
+  color: #555;
+  font-size: 0.8rem;
+  float: right;
+}
+
+.current {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 3rem;
+}
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon img {
+  height: 100px;
+  margin-right: 1.5rem;
+  font-weight: bolder;
+}
+.icon h1 {
+  font-size: 3.5rem;
+  line-height: 6rem;
+}
+
+.text {
+  line-height: 1.2rem;
+  font-family: Arial, Helvetica, serif;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+  
+}
+.text p {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+
+.forecast {
+  font-family: 'Roboto Mono', monospace;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  margin-top: 1rem;
+}
+
+.right {
+  font-weight: bold;
+}
+.left {
+  letter-spacing: 1px;
+}
+
+.row,
+.last {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: snow;
+  border-bottom: 1px solid #333;
+  padding: 0.5rem ;
+}
+
+.last {
+  border-bottom: none;
+}
+
+
+
+
+
+
+
