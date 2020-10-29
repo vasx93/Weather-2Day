@@ -10,7 +10,7 @@ const btn = document.querySelector('.fa-search')
 async function loadDailyWeather() {
   const location = userSearch.value
 
-  const response = await axios.get(`http://localhost:3000/day?address=${location}`)
+  const response = await axios.get(`/day?address=${location}`)
 
   if (response.error) {
     return message1.textContent = 'No location found, try again?'

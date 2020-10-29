@@ -19,7 +19,7 @@ const right = document.querySelector('#right')
 async function loadHourlyWeather() {
   const location = userSearch.value
 
-  const response = await axios.get(`http://localhost:3000/hour?address=${location}`)
+  const response = await axios.get(`/hour?address=${location}`)
   
 
   if (response.error) {

@@ -31,7 +31,7 @@ async function loadWeather ()  {
 
   const location = userSearch.value
 
-  const response = await axios.get(`http://localhost:3000/weather?address=${location}`)
+  const response = await axios.get(`/weather?address=${location}`)
 
   if (response.error) {
     return message1.textContent = 'No location found, try again?'
