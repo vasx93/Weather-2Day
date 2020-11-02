@@ -3,10 +3,11 @@
 /*?                       DAILY FORECAST                   */
 
 .daily-forecast {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
-  padding: 0.5rem;
+  padding: 0.5rem 1rem;
   
 }
 
@@ -38,33 +39,41 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
 
 }
 .week {
-  font-weight: bold;
+  font-family: 'Commissioner', sans-serif;
+  font-weight: 400;
+  font-size: 1.1rem;
   
 }
 
 .icon img {
-  height: 40px;
+  height: 50px;
+  margin-top: -10px;
   
 }
 
 .current {
-  padding: 1rem auto;
+  /* padding: 1rem auto; */
   text-align: center;
-  margin: 1rem auto 1.1rem auto;
+  margin-bottom: 1rem;
+  
 }
 
 .current h1 {
   text-align: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
     
     
 }
 .current p  {
   font-size: 1.1rem;
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 2px;
+
 }
 
 .forecast {
@@ -74,11 +83,14 @@
 
 .forecast li {
   padding: 10px 0;
-   border-bottom: 2px solid #D3D3D3;
-   display: flex;
-   
-   
-    
+  border-bottom: 2px solid #D3D3D3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  letter-spacing: 1px;
 }
 .forecast li:last-child
 {
@@ -93,6 +105,50 @@
     width: 50%;
     text-align: right;
 }
+.right .fa {
+  color: var(--main-font-color);
+}
+
+@media screen and (max-width: 900px) {
+  .daily-forecast {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2rem;
+  }
+
+  .card {
+    padding: 0.5rem 1rem;
+  }
+
+  .current {
+    margin: 1rem 0 2rem 0;
+  }
+
+  .forecast li {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .daily-forecast {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 1rem;
+    margin: 0 10%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card {
+    margin: 0 5%;
+  }
+  body, html {
+    overflow-x: hidden;
+  }
+}
+
 
 
 

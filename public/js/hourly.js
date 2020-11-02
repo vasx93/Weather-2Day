@@ -39,16 +39,6 @@ async function loadHourlyWeather() {
 
     weatherSection.appendChild(hourCard)
   }
-
-  
-
-//   for (let i = 7; i < response.data.forecast.length - 33; i++) {
-//     const hourCard = document.createElement('div')
-//     hourCard.classList.add('card')
-//     hourCard.innerHTML = hour(response.data.forecast[i])
-
-//     right.append(hourCard)
-//   }
   
  }
 
@@ -80,7 +70,7 @@ function hour(hourly) {
             
 
             <div class="current">
-              <h1>${temp}°C</h1>
+              <h1><span>${temp}°C</span></h1>
             </div>
 
             <div class="description"
@@ -88,7 +78,7 @@ function hour(hourly) {
             </div>
 
             <div class="rain">
-                <i class="fa fa-umbrella fa-lg"></i>  ${rain} %
+                <i class="fa fa-umbrella fa-lg"></i>  ${rain}%
             </div>
           </div>`
     

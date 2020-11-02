@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
 
 * {
     padding: 0;
@@ -14,7 +15,6 @@
     --darker-font-color: #1B0066;
     --acent-color: #FFA266;
     --black: #333333;
-    
     --lavander: #957DAD;
     --green: #527D1A;
 }
@@ -22,21 +22,28 @@
 
 body, html {
     background-color: var(--main-font-color);
-    /* background-color: var(--lavander); */
     color: white;
     font-family: arial;
-    overflow: hidden;
     min-height: 100vh;
     scroll-behavior: smooth;
+    position: relative;
+    
   }
 
 .body-wrap {
     max-width: 1140px;
-    margin: auto;
-    ;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
 
-header span {
+span {
     background: rgb(197,191,191);
     background: linear-gradient(45deg, rgba(197,191,191,0.7515641116024403) 0%, rgba(253,0,0,1) 100%);
     background-clip: text;
@@ -55,16 +62,21 @@ header span {
 
 
 footer {
-    position: absolute;
-    bottom: 0;
     max-width: 1140px;
     width: 100%;
     height: 2rem;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
     border-top: 2px solid #eeeeee;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
+    
   }
 footer p {
    letter-spacing: 2px;
@@ -103,7 +115,7 @@ footer p {
 
 #openweathermap-widget-15,
 #openweathermap-widget-19 {
-    margin: 0rem;
+    margin: 0.5rem 0 0 0;
     z-index: 2;
 }
 
@@ -111,11 +123,14 @@ footer p {
 
 .main-content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     font-weight: bolder;
     border-bottom: 2px solid #eeeeee;
     padding: 0.5rem;
+    width: 100%;
+    
 }
 
 /**             BACKGROUND IMG */
@@ -133,12 +148,14 @@ footer p {
 } */
 
 header {
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     text-align: center;
     z-index: 2;
     margin: 0;
-    padding-bottom: 0.5rem;
+    padding: 0 1rem;
 }
 
 header h1 {
@@ -152,20 +169,22 @@ header h1 {
 }
 
 .link-container {
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    padding-bottom: 0.5rem;
 }
 .links {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-right: 1rem;
 }
 
 .links a {
     color: white;
-    padding: 0px 8px 0px 0px;
+    padding: 0 16px ;
     text-decoration: none;
     font-weight: bold;
 }
@@ -173,13 +192,9 @@ header h1 {
     color: #343434;
 }
 
-/* .links a:hover {
-    transform: scale(1.05);
-} */
-
 .social {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin: 0 0.5rem;
 }
@@ -192,7 +207,7 @@ header h1 {
     padding: 0px 5px;
     text-align: center;
     text-decoration: none;
-    margin: 0px 5px 0px 0px;
+    margin: 0px 10px 0px 0px;
 }
 
 
@@ -220,6 +235,7 @@ header h1 {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    margin-top: 1rem;
 }
 
 .main-search {
@@ -282,6 +298,139 @@ button, button:active, button:focus, button:hover {
     letter-spacing: 3px;
 }
 
+
+/*TODO  ~~~~~~~~~~~~~~~RESPONSIVE~~~~~~~~~~~~~~~~~~ */
+
+@media screen and (max-width:900px) {
+
+   
+  
+    header h1 {
+      font-size: 3.3rem;
+      letter-spacing: 3px;
+    }
+}
+  
+@media screen and (max-width: 768px) {
+    
+
+    .main-content {
+        padding: 0.1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    header {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    .link-container {
+        padding: 0.3rem 0.1rem;
+    }
+
+    .links {
+        margin: 0;
+    }
+
+    .links a {
+        padding: 0 8px;
+    }
+    .social {
+        margin: 0;
+    }
+    .social .fa {
+        padding: 0px 5px;
+        margin: 0;
+    }
+}
+  
+@media screen and (max-width: 600px) {
+    
+    .main-content {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    header {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header h1 {
+        margin: 0;
+        font-size:2.2rem ;
+        letter-spacing: 0px;
+    }
+  
+    .link-container {
+        padding: 0.3rem 0.1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    .links {
+        margin: 0;
+        justify-content: space-evenly;
+    }
+  
+    .links a {
+        padding: 0 10px;
+    }
+    .social {
+        margin-top: 1rem;
+    }
+    .social .fa {
+        padding: 0px 10px;
+        margin: 0;
+    }
+
+    
+}
+
+@media screen and (max-width: 500px) {
+    #first {
+      letter-spacing: 0px;
+      font-size: 1.1rem;
+    }
+  
+    form input {
+      margin-right: 1rem;
+    }
+
+    .links a {
+        padding: 0 6px;
+        font-size: 0.9rem;
+    }
+
+    .about-note {
+        letter-spacing: 1px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .links a {
+        font-size: 0.8rem;
+    }
+    .social .fa {
+        
+    }
+}
 
 
 

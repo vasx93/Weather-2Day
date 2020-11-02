@@ -52,14 +52,14 @@ function daily(day) {
             <div class="icon"><img src="https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png"></div>
           </div>
             <div class="current">
-              <h1>${temp}°C</h1>
+              <h1><span>${temp}°C</span></h1>
               <p>${day.weather[0].description}</p>
             </div>
 
             <ul class="forecast">
                 <li>
                   <div class="left">Temperature</div>
-                  <div class="right"><i class="fa fa-sun" aria-hidden="true"></i> ${max}°C / ${min}°C </div>
+                  <div class="right"><i class="fa fa-sun" aria-hidden="true"></i> ${max}°C/${min}°C </div>
                 </li>
                 <li>
                 <div class="left">Humidity</div>

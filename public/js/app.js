@@ -111,7 +111,7 @@ async function loadWeather ()  {
       <div class="current">
         <div class="icon">
           <img src="https://openweathermap.org/img/wn/${data[0].weather[0].icon}@2x.png">
-          <h1>${temp}°C</h1>
+          <h1><span>${temp}°C</span></h1>
         </div>
         
         <div class="text">
@@ -124,32 +124,32 @@ async function loadWeather ()  {
 
             <div class="row">
               <div class="left">Temperature</div>
-              <div class="right"> ${max}°C / ${min}°C</div>
+              <div class="right"> ${max}°C/${min}°C</div>
             </div>
 
             <div class="row">
               <div class="left">Humidity</div>
-              <div class="right">${data[0].humidity} %</div>
+              <div class="right">${data[0].humidity}%</div>
             </div>
 
             <div class="row">
               <div class="left">Precipitation</div>
-              <div class="right">${rain} %</div>
+              <div class="right">${rain}%</div>
             </div>
 
             <div class="row">
               <div class="left">Pressure</div>
-              <div class="right">${data[0].pressure} mbar</div>
+              <div class="right">${data[0].pressure}mbar</div>
             </div>
 
             <div class=" row">
               <div class="left">Wind Speed</div>
-              <div class="right">${wind}ms</div>
+              <div class="right">${wind}km/h</div>
             </div>
 
             <div class=" row">
               <div class="left">Wind Direction</div>
-              <div class="right">${data[0].wind_deg}° ${windDeg}</div>
+              <div class="right">${data[0].wind_deg}°${windDeg}</div>
             </div>
 
 
@@ -163,7 +163,7 @@ async function loadWeather ()  {
               <div class="right">${sunrise}</div>
             </div>
 
-            <div class="last">
+            <div class="last"  id="tr">
               <div class="left">Night</div>
               <div class="right">${data[0].temp.night}°C</div>
             </div>

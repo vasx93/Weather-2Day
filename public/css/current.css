@@ -3,17 +3,17 @@
 /*?   ------------------     FORECAST     -----------      */
 
 .weather-card {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 
 .card {
   background-color:  ivory;
   color: #333;
   border-radius: 10px;
-  padding: 0.5rem;
+  padding: 2rem;
   width: 70%;
   height: 100%;
   box-shadow:
@@ -111,6 +111,93 @@
 .last {
   border-bottom: none;
 }
+
+
+@media screen and (max-width: 900px) {
+  .card {
+    padding: 1rem 0.5rem;
+  }
+
+  .current {
+    padding: 0.5rem;
+  }
+
+  .left {
+    letter-spacing: 1px;
+  }
+}
+@media screen and (max-width: 768px) {
+
+  
+ .card {
+   width: 85%;
+ }
+}
+
+@media screen and (max-width: 600px) {
+  
+  .weather-card {
+    padding-bottom: 2rem;
+  }
+
+  .forecast {
+    grid-template-columns: 1fr;
+  }
+
+  .current {
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+  }
+  .icon img {
+    height: 100px;
+    margin-right: 0rem;
+  }
+
+  .icon h1 {
+    font-size: 3.5rem;
+    line-height: 4rem;
+  }
+  
+  #tr {
+    border-bottom: 1px solid #333;
+  }
+
+  .card {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card {
+    width: 85%;
+  }
+
+  .icon img {
+    font-size: 80px;
+    margin-right: 0rem;
+  }
+
+  .icon h1 {
+    font-size: 2.5rem;
+  }
+
+  .text {
+    font-size: 1.2rem;
+  }
+
+  .left {
+    letter-spacing: 0px;
+  }
+
+  .links a {
+    padding: 0 7px;
+  }
+
+
+}
+
+
 
 
 
