@@ -14,7 +14,7 @@ server.use(
 );
 server.use(express.json());
 
-server.use(weatherRouter);
+server.use('/', weatherRouter);
 
 const PORT = process.env.PORT || 3000;
 
