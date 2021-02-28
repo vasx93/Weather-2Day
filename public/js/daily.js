@@ -1,50 +1,44 @@
-//CLIENTSIDE JS FILE HERE---
-
-const form = document.querySelector('form')
-const userSearch = document.querySelector('input')
-const message1 = document.querySelector('#first')
-const weatherSection = document.querySelector('.daily-forecast')
-const btn = document.querySelector('.fa-search')
-
+const form = document.querySelector('form');
+const userSearch = document.querySelector('input');
+const message1 = document.querySelector('#first');
+const weatherSection = document.querySelector('.daily-forecast');
+const btn = document.querySelector('.fa-search');
 
 async function loadDailyWeather() {
-  const location = userSearch.value
+	const location = userSearch.value;
 
-  const response = await axios.get(`/day?address=${location}`)
+	const response = await axios.get(`/day?address=${location}`);
 
-  if (response.error) {
-    return message1.textContent = 'No location found, try again?'
-  }
+	if (response.error) {
+		return (message1.textContent = 'No location found, try again?');
+	}
 
-  console.log(response.data.forecast)
-  message1.textContent = response.data.location
+	console.log(response.data.weather);
+	message1.textContent = response.data.location;
 
+	for (let day of response.data.weather) {
+		const dayCard = document.createElement('div');
+		dayCard.classList.add('card');
+		dayCard.innerHTML = daily(day);
 
-  for (let day of response.data.forecast) {
-    
-    const dayCard = document.createElement('div')
-    dayCard.classList.add('card')
-    dayCard.innerHTML = daily(day)
-
-    weatherSection.append(dayCard)
-  }
+		weatherSection.append(dayCard);
+	}
 }
 
-
 function daily(day) {
-  let timestamp = day.dt
-  let date = new Date(timestamp * 1000)
-  let dayOfWeek = date.toLocaleDateString(undefined, {
-    day: 'numeric',
-    month: 'short',
-  })
+	let timestamp = day.dt;
+	let date = new Date(timestamp * 1000);
+	let dayOfWeek = date.toLocaleDateString(undefined, {
+		day: 'numeric',
+		month: 'short',
+	});
 
-  let temp = parseInt(day.temp.day)
-  let max = parseInt(day.temp.max)
-  let min = parseInt(day.temp.min)
-  let rain = parseInt(day.pop)
+	let temp = parseInt(day.temp.day);
+	let max = parseInt(day.temp.max);
+	let min = parseInt(day.temp.min);
+	let rain = parseInt(day.pop);
 
-  return `
+	return `
       
         <div class="front">
           <div class="top">
@@ -72,26 +66,20 @@ function daily(day) {
             </ul>
         </div>
         
-        </div>`
-    
+        </div>`;
 }
 
-form.addEventListener('submit', async(ev) => {
-  ev.preventDefault()
+form.addEventListener('submit', async ev => {
+	ev.preventDefault();
 
-  if (weatherSection.innerHTML != '') {
+	if (weatherSection.innerHTML != '') {
+		weatherSection.innerHTML = '';
+		message1.textContent = '';
 
-    weatherSection.innerHTML = ''
-    message1.textContent = ''
-
-    await loadDailyWeather()
-    btn.classList.toggle('flip')
-  
-  } else {
-
-    
-    await loadDailyWeather()
-    btn.classList.toggle('flip')
-  }
-})
-
+		await loadDailyWeather();
+		btn.classList.toggle('flip');
+	} else {
+		await loadDailyWeather();
+		btn.classList.toggle('flip');
+	}
+});

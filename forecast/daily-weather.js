@@ -1,24 +1,12 @@
-const request = require('request')
+const fetch = require('node-fetch');
 
 module.exports = {
+	async dailyWeather(weatherObj) {
+		const res = await fetch(
+			`https://api.openweathermap.org/data/2.5/onecall?lat=${weatherObj.latitude}&lon=${weatherObj.longitude}&exclude=current,hourly, minutely&appid=${process.env.OPEN_WEATHER_API_KEY}&units=metric`
+		);
+		const data = await res.json();
 
-  dailyWeather(latitude, longitude, next) {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=current,hourly,minutely&appid=1c991d24d0cd49c462d60dcb3c10a85b&units=metric`
-
-    request({ url, json: true}, (error, {body}) => {
-
-      if (error) {
-        next('Error occured', )
-      } else if (!latitude && !longitude) {
-        next('Coordinates not found', )
-      } else if(body.error) {
-        next('Error!', )
-      } else {
-
-        next(undefined, body.daily)
-      }
-    })
-  }
-}
-
-
+		return data.daily;
+	},
+};

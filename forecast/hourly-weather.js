@@ -1,24 +1,11 @@
-const request = require('request')
+const fetch = require('node-fetch');
 
 module.exports = {
-
-  hourlyWeather(latitude, longitude, next) {
-    const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,current,daily&appid=1c991d24d0cd49c462d60dcb3c10a85b&units=metric`
-
-    request({ url, json: true}, (error, {body}) => {
-
-      if (error) {
-        next('Error occured', )
-      } else if (!latitude && !longitude) {
-        next('Coordinates not found', )
-      } else if(body.error) {
-        next('Error!', )
-      } else {
-        
-        next(undefined,body.hourly)
-      }
-    })
-  }
-}
-
-
+	async hourlyWeather(weatherObj) {
+		const res = await fetch(
+			`https://api.openweathermap.org/data/2.5/onecall?lat=${weatherObj.latitude}&lon=${weatherObj.longitude}&exclude=current,minutely,daily&appid=${process.env.OPEN_WEATHER_API_KEY}&units=metric`
+		);
+		const data = await res.json();
+		return data.hourly;
+	},
+};
