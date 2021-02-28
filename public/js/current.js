@@ -8,7 +8,13 @@ async function loadWeather() {
 	try {
 		const location = userSearch.value;
 
-		const response = await axios.post(`/weather`, { location });
+		const response = await axios.post(
+			`/weather`,
+			{ location },
+			{
+				headers: { 'Content-type': 'application/json' },
+			}
+		);
 
 		if (response.error) {
 			return (message1.textContent = 'No location found, try again?');
