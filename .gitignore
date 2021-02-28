@@ -1,4 +1,4 @@
-node_modules/
+/node_modules
 .env
 ssh-keygen -t rsa -b 4096 -C vasx93@hotmail.com
 ssh-keygen -t rsa -b 4096 -C vasx93@hotmail.com.pub

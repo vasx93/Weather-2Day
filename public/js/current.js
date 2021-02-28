@@ -10,7 +10,7 @@ async function loadWeather() {
 
 		const response = await axios.post(`/`, { address });
 
-		if (response.data.error) {
+		if (!response) {
 			return (message1.textContent = 'No location found, try again?');
 		}
 		console.log(response.data);

@@ -6,11 +6,10 @@ const { hourlyWeather } = require('../forecast/hourly-weather');
 module.exports = {
 	async getCurrentWeather(req, res) {
 		try {
-			if (!req.body.address) {
-				return res.status(400).send({
-					error: 'Address is required',
-				});
+			if (!req.body.address || req.body.address.length === 0) {
+				return res.status(400).send();
 			}
+
 			const geocodeData = await getGeocodeAPI(req.body.address);
 
 			if (!geocodeData) {
@@ -28,16 +27,14 @@ module.exports = {
 				location: geocodeData.location,
 			});
 		} catch (err) {
-			res.status(400).send(err.message);
+			res.status(400).send(err);
 		}
 	},
 
 	async getDailyWeather(req, res) {
 		try {
 			if (!req.body.address) {
-				return res.status(400).send({
-					error: 'Address is required',
-				});
+				return res.status(400).send();
 			}
 			const geocodeData = await getGeocodeAPI(req.body.address);
 
@@ -63,9 +60,7 @@ module.exports = {
 	async getHourlyWeather(req, res) {
 		try {
 			if (!req.body.address) {
-				return res.status(400).send({
-					error: 'Address is required',
-				});
+				return res.status(400).send();
 			}
 			const geocodeData = await getGeocodeAPI(req.body.address);
 

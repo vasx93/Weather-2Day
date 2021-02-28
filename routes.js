@@ -10,19 +10,19 @@ const {
 //*                STATIC ROUTES
 
 router.get('/', (req, res) => {
-	res.sendFile(path.join(__dirname, 'views/index.html'));
+	res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 router.get('/daily', (req, res) => {
-	res.sendFile(path.join(__dirname, 'views/daily.html'));
+	res.sendFile(path.join(__dirname, 'public/daily.html'));
 });
 
 router.get('/hourly', (req, res) => {
-	res.sendFile(path.join(__dirname, 'views/hourly.html'));
+	res.sendFile(path.join(__dirname, 'public/hourly.html'));
 });
 
 router.get('/about', (req, res) => {
-	res.sendFile(path.join(__dirname, 'views/about.html'));
+	res.sendFile(path.join(__dirname, 'public/about.html'));
 });
 
 router.post('/', getCurrentWeather);
