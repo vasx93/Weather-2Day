@@ -10,32 +10,22 @@ module.exports = {
 				return res.status(400).send();
 			}
 
-			// const geocodeData = await getGeocodeAPI(req.body.address);
-			getGeocodeAPI(req.body.address)
-				.then(response => {
-					currentWeather(response).then(data => {
-						res.status(200).send({
-							weather: data,
-							location: response.location,
-						});
-					});
-				})
-				.catch(err => console.log(err));
+			const geocodeData = await getGeocodeAPI(req.body.address);
 
-			// if (!geocodeData) {
-			// 	return res.status(500).send();
-			// }
+			if (!geocodeData) {
+				return res.status(500).send();
+			}
 
-			// const weather = await currentWeather(geocodeData);
+			const weather = await currentWeather(geocodeData);
 
-			// if (!weather) {
-			// 	return res.status(404).send();
-			// }
+			if (!weather) {
+				return res.status(404).send();
+			}
 
-			// res.status(200).send({
-			// 	weather,
-			// 	location: geocodeData.location,
-			// });
+			res.status(200).send({
+				weather,
+				location: geocodeData.location,
+			});
 		} catch (err) {
 			res.status(400).send(err);
 		}
