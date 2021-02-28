@@ -28,8 +28,11 @@ router.get('/about', (req, res) => {
 
 //*   ~~~ WEATHER ROUTES ~~~
 
-router.get('/weather', getCurrentWeather);
-router.get('/day', getDailyWeather);
-router.get('/hour', getHourlyWeather);
+router.post('/weather', getCurrentWeather);
+router.post('/day', getDailyWeather);
+router.post('/hour', getHourlyWeather);
+// router.get('/weather', getCurrentWeather);
+// router.get('/day', getDailyWeather);
+// router.get('/hour', getHourlyWeather);
 
 module.exports = router;

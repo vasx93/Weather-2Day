@@ -13,7 +13,8 @@ async function loadHourlyWeather() {
 	try {
 		const location = userSearch.value;
 
-		const response = await axios.get(`/hour?address=${location}`);
+		// const response = await axios.get(`/hour?address=${location}`);
+		const response = await axios.post(`/hour`, { location });
 
 		if (response.error) {
 			return (message1.textContent = 'No location found, try again?');
@@ -67,17 +68,17 @@ function hour(hourly) {
           </div>`;
 }
 
-form.addEventListener('submit', async ev => {
+form.addEventListener('submit', ev => {
 	ev.preventDefault();
 
 	if (weatherSection.innerHTML != '') {
 		weatherSection.innerHTML = '';
 		message1.textContent = '';
 
-		await loadHourlyWeather();
+		loadHourlyWeather();
 		btn.classList.toggle('flip');
 	} else {
-		await loadHourlyWeather();
+		loadHourlyWeather();
 		btn.classList.toggle('flip');
 	}
 });

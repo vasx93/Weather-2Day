@@ -8,7 +8,8 @@ async function loadDailyWeather() {
 	try {
 		const location = userSearch.value;
 
-		const response = await axios.get(`/day?address=${location}`);
+		// const response = await axios.get(`/day?address=${location}`);
+		const response = await axios.post(`/day`, { location });
 
 		if (response.error) {
 			return (message1.textContent = 'No location found, try again?');

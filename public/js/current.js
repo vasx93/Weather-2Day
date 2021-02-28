@@ -8,7 +8,7 @@ async function loadWeather() {
 	try {
 		const location = userSearch.value;
 
-		const response = await axios.get(`/weather?address=${location}`);
+		const response = await axios.post(`/weather`, { location });
 
 		if (response.error) {
 			return (message1.textContent = 'No location found, try again?');
@@ -153,16 +153,16 @@ function renderWeather(data) {
   </div>`;
 }
 
-form.addEventListener('submit', async ev => {
+form.addEventListener('submit', ev => {
 	ev.preventDefault();
 	if (weatherCard.innerHTML != '') {
 		weatherCard.innerHTML = '';
 		message1.textContent = '';
 
-		await loadWeather();
+		loadWeather();
 		btn.classList.toggle('flip');
 	} else {
-		await loadWeather();
+		loadWeather();
 		btn.classList.toggle('flip');
 	}
 });
