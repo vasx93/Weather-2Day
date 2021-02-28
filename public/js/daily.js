@@ -5,23 +5,27 @@ const weatherSection = document.querySelector('.daily-forecast');
 const btn = document.querySelector('.fa-search');
 
 async function loadDailyWeather() {
-	const location = userSearch.value;
+	try {
+		const location = userSearch.value;
 
-	const response = await axios.get(`/day?address=${location}`);
+		const response = await axios.get(`/day?address=${location}`);
 
-	if (response.error) {
-		return (message1.textContent = 'No location found, try again?');
-	}
+		if (response.error) {
+			return (message1.textContent = 'No location found, try again?');
+		}
 
-	console.log(response.data.weather);
-	message1.textContent = response.data.location;
+		console.log(response.data.weather);
+		message1.textContent = response.data.location;
 
-	for (let day of response.data.weather) {
-		const dayCard = document.createElement('div');
-		dayCard.classList.add('card');
-		dayCard.innerHTML = daily(day);
+		for (let day of response.data.weather) {
+			const dayCard = document.createElement('div');
+			dayCard.classList.add('card');
+			dayCard.innerHTML = daily(day);
 
-		weatherSection.append(dayCard);
+			weatherSection.append(dayCard);
+		}
+	} catch (err) {
+		console.log(err.message);
 	}
 }
 

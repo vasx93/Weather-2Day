@@ -10,22 +10,26 @@ const right = document.querySelector('#right');
 //*          daily weather cards
 
 async function loadHourlyWeather() {
-	const location = userSearch.value;
+	try {
+		const location = userSearch.value;
 
-	const response = await axios.get(`/hour?address=${location}`);
+		const response = await axios.get(`/hour?address=${location}`);
 
-	if (response.error) {
-		return (message1.textContent = 'No location found, try again?');
-	}
+		if (response.error) {
+			return (message1.textContent = 'No location found, try again?');
+		}
 
-	message1.textContent = response.data.location;
+		message1.textContent = response.data.location;
 
-	for (let i = 0; i < response.data.weather.length - 36; i++) {
-		const hourCard = document.createElement('div');
-		hourCard.classList.add('card');
-		hourCard.innerHTML = hour(response.data.weather[i]);
+		for (let i = 0; i < response.data.weather.length - 36; i++) {
+			const hourCard = document.createElement('div');
+			hourCard.classList.add('card');
+			hourCard.innerHTML = hour(response.data.weather[i]);
 
-		weatherSection.appendChild(hourCard);
+			weatherSection.appendChild(hourCard);
+		}
+	} catch (err) {
+		console.log(err.message);
 	}
 }
 

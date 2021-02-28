@@ -5,22 +5,26 @@ const weatherCard = document.querySelector('.weather-card');
 const btn = document.querySelector('.fa-search');
 
 async function loadWeather() {
-	const location = userSearch.value;
+	try {
+		const location = userSearch.value;
 
-	const response = await axios.get(`/weather?address=${location}`);
+		const response = await axios.get(`/weather?address=${location}`);
 
-	if (response.error) {
-		return (message1.textContent = 'No location found, try again?');
+		if (response.error) {
+			return (message1.textContent = 'No location found, try again?');
+		}
+		console.log(response.data.weather);
+
+		// Create weather card
+		message1.textContent = response.data.location;
+
+		const temp = document.createElement('div');
+		temp.classList.add('card');
+		temp.innerHTML = renderWeather(response.data.weather);
+		weatherCard.append(temp);
+	} catch (err) {
+		console.log(err.message);
 	}
-	console.log(response.data.weather);
-
-	// Create weather card
-	message1.textContent = response.data.location;
-
-	const temp = document.createElement('div');
-	temp.classList.add('card');
-	temp.innerHTML = renderWeather(response.data.weather);
-	weatherCard.append(temp);
 }
 
 // Render and display current weather data
@@ -149,16 +153,16 @@ function renderWeather(data) {
   </div>`;
 }
 
-form.addEventListener('submit', ev => {
+form.addEventListener('submit', async ev => {
 	ev.preventDefault();
 	if (weatherCard.innerHTML != '') {
 		weatherCard.innerHTML = '';
 		message1.textContent = '';
 
-		loadWeather();
+		await loadWeather();
 		btn.classList.toggle('flip');
 	} else {
-		loadWeather();
+		await loadWeather();
 		btn.classList.toggle('flip');
 	}
 });
