@@ -16,7 +16,11 @@ server.use(express.json());
 
 server.use((req, res, next) => {
 	req.header('Content-type', 'application/json');
-	// req.header['Content-type'] = 'application/json';
+	req.header('Access-Control-Allow-Origin', '*');
+	req.header('Access-Control-Allow-Headers', 'Content-Type');
+	res.setHeader('Content-Security-Policy', 'script-src * ');
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Content-Type');
 
 	next();
 });
