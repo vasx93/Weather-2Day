@@ -148,16 +148,16 @@ function renderWeather(data) {
   </div>`;
 }
 
-form.addEventListener('submit', async ev => {
+form.addEventListener('submit', ev => {
 	ev.preventDefault();
 	if (weatherCard.innerHTML != '') {
 		weatherCard.innerHTML = '';
 		message1.textContent = '';
 
-		await loadWeather();
+		loadWeather();
 		btn.classList.toggle('flip');
 	} else {
-		await loadWeather();
+		loadWeather();
 		btn.classList.toggle('flip');
 	}
 });
