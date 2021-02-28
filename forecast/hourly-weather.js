@@ -1,11 +1,11 @@
-const fetch = require('node-fetch');
+const axios = require('axios');
 
 module.exports = {
 	async hourlyWeather(weatherObj) {
-		const res = await fetch(
+		const res = await axios.get(
 			`https://api.openweathermap.org/data/2.5/onecall?lat=${weatherObj.latitude}&lon=${weatherObj.longitude}&exclude=current,minutely,daily&appid=${process.env.OPEN_WEATHER_API_KEY}&units=metric`
 		);
-		const data = await res.json();
-		return data.hourly;
+
+		return res.data.hourly;
 	},
 };
