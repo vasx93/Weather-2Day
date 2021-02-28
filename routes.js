@@ -25,8 +25,8 @@ router.get('/about', (req, res) => {
 	res.sendFile(path.join(__dirname, 'views/about.html'));
 });
 
-router.post('/weather', getCurrentWeather);
-router.post('/day', getDailyWeather);
-router.post('/hour', getHourlyWeather);
+router.post('/', getCurrentWeather);
+router.post('/daily', getDailyWeather);
+router.post('/hourly', getHourlyWeather);
 
 module.exports = router;

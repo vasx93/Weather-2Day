@@ -11,16 +11,10 @@ const right = document.querySelector('#right');
 
 async function loadHourlyWeather() {
 	try {
-		const location = userSearch.value;
+		const address = userSearch.value;
 
 		// const response = await axios.get(`/hour?address=${location}`);
-		const response = await axios.post(
-			`/hour`,
-			{ location },
-			{
-				headers: { 'Content-type': 'application/json' },
-			}
-		);
+		const response = await axios.post(`/hourly`, { address });
 
 		if (response.error) {
 			return (message1.textContent = 'No location found, try again?');

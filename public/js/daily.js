@@ -6,16 +6,10 @@ const btn = document.querySelector('.fa-search');
 
 async function loadDailyWeather() {
 	try {
-		const location = userSearch.value;
+		const address = userSearch.value;
 
-		// const response = await axios.get(`/day?address=${location}`);
-		const response = await axios.post(
-			`/day`,
-			{ location },
-			{
-				headers: { 'Content-type': 'application/json' },
-			}
-		);
+		// const response = await axios.get(`/day?address=${address}`);
+		const response = await axios.post(`/daily`, { address });
 
 		if (response.error) {
 			return (message1.textContent = 'No location found, try again?');

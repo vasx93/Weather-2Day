@@ -6,20 +6,14 @@ const btn = document.querySelector('.fa-search');
 
 async function loadWeather() {
 	try {
-		const location = userSearch.value;
+		const address = userSearch.value;
 
-		const response = await axios.post(
-			`/weather`,
-			{ location },
-			{
-				headers: { 'Content-type': 'application/json' },
-			}
-		);
+		const response = await axios.post(`/`, { address });
 
-		if (response.error) {
+		if (response.data.error) {
 			return (message1.textContent = 'No location found, try again?');
 		}
-		console.log(response.data.weather);
+		console.log(response.data);
 
 		// Create weather card
 		message1.textContent = response.data.location;
