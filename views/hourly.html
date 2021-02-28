@@ -1,85 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hourly Forecast</title>
-  
-  <link rel="icon" href="/weather.png">
-  <script src="https://kit.fontawesome.com/1bb7a3dd1c.js" crossorigin="anonymous"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Hourly Forecast</title>
 
-  
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/hourly.css">
-  
+		<link rel="icon" href="/weather.png" />
+		<script
+			src="https://kit.fontawesome.com/1bb7a3dd1c.js"
+			crossorigin="anonymous"
+		></script>
 
-  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-  <script src="js/hourly.js" defer></script>
-  <script src="widget.js" defer></script>
-</head>
-<body>
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/hourly.css" />
+	</head>
+	<body>
+		<div class="body-wrap">
+			<div class="main-content">
+				<header>
+					<div id="openweathermap-widget-19"></div>
 
-  <div class="body-wrap">
-    <div class="main-content">
-        
-      <header>
-        
-        <div id="openweathermap-widget-19"></div>
-      
-        <h1>Weather <span>2Day</span></h1>
-      </header>
-        
-        <div class="link-container">
-        
-          <div class="links">
-            <a href="/">Home</a>
-            <a href="/daily">Daily Forecast</a>
-            <a href="/hourly">Hourly Forecast</a>
-            <a href="/about">About</a>
-          </div>
+					<h1>Weather <span>2Day</span></h1>
+				</header>
 
-          <div class="social">
-            <a href="https://www.facebook.com/" class="fa fa-facebook fa-lg" target="_blank"></a>
-            <a href="https://twitter.com/?lang=en" class="fa fa-twitter fa-lg" target="_blank"></a>
-            <a href="https://www.linkedin.com/feed/" class="fa fa-linkedin fa-lg" target="_blank"></a>
-            <a href="https://www.instagram.com/" class="fa fa-instagram fa-lg" target="_blank"></a>
-          </div>
+				<div class="link-container">
+					<div class="links">
+						<a href="/">Home</a>
+						<a href="/daily">Daily Forecast</a>
+						<a href="/hourly">Hourly Forecast</a>
+						<a href="/about">About</a>
+					</div>
 
-        </div>
-      
-      
+					<div class="social">
+						<a
+							href="https://www.facebook.com/"
+							class="fa fa-facebook fa-lg"
+							target="_blank"
+						></a>
+						<a
+							href="https://twitter.com/?lang=en"
+							class="fa fa-twitter fa-lg"
+							target="_blank"
+						></a>
+						<a
+							href="https://www.linkedin.com/feed/"
+							class="fa fa-linkedin fa-lg"
+							target="_blank"
+						></a>
+						<a
+							href="https://www.instagram.com/"
+							class="fa fa-instagram fa-lg"
+							target="_blank"
+						></a>
+					</div>
+				</div>
+			</div>
 
-    </div>
+			<!--?              search input and button          -->
+			<section class="search-form">
+				<div class="main-search">
+					<form action="/">
+						<input type="text" placeholder="Your location.." />
+						<button class="search"><i class="fas fa-search fa-lg"></i></button>
+					</form>
+				</div>
 
-    <!--?              search input and button          -->
-    <section class="search-form">
-      
-      <div class="main-search">
-        <form action="/">
-            <input type="text" placeholder="Your location..">
-            <button class="search"><i class="fas fa-search fa-lg"></i></button>
-        </form>
-      </div>
-      
-      <p id="first"></p>
+				<p id="first"></p>
+			</section>
 
-    </section>
+			<section class="hourly-forecast"></section>
+		</div>
 
-    <section class="hourly-forecast">
+		<footer>
+			<p>Created by Vasko Raketic</p>
+		</footer>
 
-      <!-- <div id="left"></div>
-
-      <div id="right"></div> -->
-
-    </section>
-
-  </div>
-  
-    <footer>
-      <p>Created by Vasko Raketic</p>
-    </footer>
-
- 
-  
-</body>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="js/hourly.js"></script>
+		<script src="widget.js"></script>
+	</body>
 </html>

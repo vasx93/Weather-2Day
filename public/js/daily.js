@@ -73,17 +73,17 @@ function daily(day) {
         </div>`;
 }
 
-form.addEventListener('submit', async ev => {
+form.addEventListener('submit', ev => {
 	ev.preventDefault();
 
 	if (weatherSection.innerHTML != '') {
 		weatherSection.innerHTML = '';
 		message1.textContent = '';
 
-		await loadDailyWeather();
+		loadDailyWeather();
 		btn.classList.toggle('flip');
 	} else {
-		await loadDailyWeather();
+		loadDailyWeather();
 		btn.classList.toggle('flip');
 	}
 });

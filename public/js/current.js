@@ -23,7 +23,7 @@ async function loadWeather() {
 		temp.innerHTML = renderWeather(response.data.weather);
 		weatherCard.append(temp);
 	} catch (err) {
-		console.log(err.message);
+		console.error(err.message);
 	}
 }
 
