@@ -33,7 +33,7 @@ module.exports = {
 
 	async getDailyWeather(req, res) {
 		try {
-			if (!req.body.address) {
+			if (!req.body.address || req.body.address.length === 0) {
 				return res.status(400).send();
 			}
 			const geocodeData = await getGeocodeAPI(req.body.address);
@@ -59,7 +59,7 @@ module.exports = {
 
 	async getHourlyWeather(req, res) {
 		try {
-			if (!req.body.address) {
+			if (!req.body.address || req.body.address.length === 0) {
 				return res.status(400).send();
 			}
 			const geocodeData = await getGeocodeAPI(req.body.address);
