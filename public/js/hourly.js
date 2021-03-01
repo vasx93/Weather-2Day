@@ -13,7 +13,6 @@ async function loadHourlyWeather() {
 	try {
 		const address = userSearch.value;
 
-		// const response = await axios.get(`/hour?address=${location}`);
 		const response = await axios.post(`/hourly`, { address });
 
 		if (response.error) {

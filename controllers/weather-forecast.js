@@ -10,23 +10,6 @@ module.exports = {
 				return res.status(404).send();
 			}
 
-			// getGeocodeAPI(req.body.address, (error, data) => {
-			// 	if (error) {
-			// 		return res.status(400).send({ error });
-			// 	}
-
-			// 	currentWeather(data, (error, forecastData) => {
-			// 		if (error) {
-			// 			return res.status(400).send({ error });
-			// 		}
-
-			// 		res.status(200).send({
-			// 			weather: forecastData,
-			// 			location: data.location,
-			// 		});
-			// 	});
-			// });
-
 			const geocodeData = await getGeocodeAPI(req.body.address);
 
 			if (!geocodeData) {
@@ -51,18 +34,18 @@ module.exports = {
 	async getDailyWeather(req, res) {
 		try {
 			if (!req.body.address || req.body.address.length === 0) {
-				return res.status(400).send();
+				return res.status(404).send();
 			}
 			const geocodeData = await getGeocodeAPI(req.body.address);
 
 			if (!geocodeData) {
-				return res.status(404).send();
+				return res.status(400).send();
 			}
 
 			const weather = await dailyWeather(geocodeData);
 
 			if (!weather) {
-				return res.status(404).send();
+				return res.status(400).send();
 			}
 
 			res.status(200).send({
@@ -77,18 +60,18 @@ module.exports = {
 	async getHourlyWeather(req, res) {
 		try {
 			if (!req.body.address || req.body.address.length === 0) {
-				return res.status(400).send();
+				return res.status(404).send();
 			}
 			const geocodeData = await getGeocodeAPI(req.body.address);
 
 			if (!geocodeData) {
-				return res.status(404).send();
+				return res.status(400).send();
 			}
 
 			const weather = await hourlyWeather(geocodeData);
 
 			if (!weather) {
-				return res.status(404).send();
+				return res.status(400).send();
 			}
 
 			res.status(200).send({
