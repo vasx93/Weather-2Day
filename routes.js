@@ -1,11 +1,7 @@
 const path = require('path');
 const express = require('express');
 const router = express.Router();
-const {
-	getCurrentWeather,
-	getDailyWeather,
-	getHourlyWeather,
-} = require('./controllers/weather-forecast');
+const { getWeather } = require('./controllers/weather-forecast');
 
 //*                STATIC ROUTES
 
@@ -25,8 +21,8 @@ router.get('/about', (req, res) => {
 	res.sendFile(path.join(__dirname, 'public/about.html'));
 });
 
-router.post('/', getCurrentWeather);
-router.post('/daily', getDailyWeather);
-router.post('/hourly', getHourlyWeather);
+router.post('/', getWeather);
+router.post('/daily', getWeather);
+router.post('/hourly', getWeather);
 
 module.exports = router;
