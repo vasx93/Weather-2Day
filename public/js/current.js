@@ -13,11 +13,11 @@ async function loadWeather() {
 		if (!response) {
 			return (message1.textContent = 'No location found, try again?');
 		}
-		console.log(response.data);
-
+		console.log(response.data.weather);
 		// Create weather card
 		message1.textContent = response.data.location;
 
+		console.log(response.data.weather);
 		const temp = document.createElement('div');
 		temp.classList.add('card');
 		temp.innerHTML = renderWeather(response.data.weather);

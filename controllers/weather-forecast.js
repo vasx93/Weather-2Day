@@ -7,25 +7,42 @@ module.exports = {
 	async getCurrentWeather(req, res) {
 		try {
 			if (!req.body.address || req.body.address.length === 0) {
-				return res.status(400).send();
+				return res.status(404).send();
 			}
 
-			const geocodeData = await getGeocodeAPI(req.body.address);
+			getGeocodeAPI(req.body.address, (error, data) => {
+				if (error) {
+					return res.status(400).send({ error });
+				}
 
-			if (!geocodeData) {
-				return res.status(400).send();
-			}
+				currentWeather(data, (error, forecastData) => {
+					if (error) {
+						return res.status(400).send({ error });
+					}
 
-			const weather = await currentWeather(geocodeData);
-
-			if (!weather) {
-				return res.status(400).send();
-			}
-
-			res.status(200).send({
-				weather,
-				location: geocodeData.location,
+					res.status(200).send({
+						weather: forecastData,
+						location: data.location,
+					});
+				});
 			});
+
+			// const geocodeData = await getGeocodeAPI(req.body.address);
+
+			// if (!geocodeData) {
+			// 	return res.status(400).send();
+			// }
+
+			// const weather = await currentWeather(geocodeData);
+
+			// if (!weather) {
+			// 	return res.status(400).send();
+			// }
+
+			// res.status(200).send({
+			// 	weather,
+			// 	location: geocodeData.location,
+			// });
 		} catch (err) {
 			res.status(400).send(err);
 		}
