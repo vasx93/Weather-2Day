@@ -1,5 +1,5 @@
 const { getGeocodeAPI } = require('../forecast/geocode');
-const { getWeatherAPI } = require('../helper');
+const { getWeatherAPI } = require('../forecast/weatherAPI');
 
 module.exports = {
 	async getWeather(req, res) {
