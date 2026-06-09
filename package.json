@@ -8,7 +8,7 @@
 		"dev": "nodemon index.js"
 	},
 	"engines": {
-		"node": "14.8.0",
+		"node": "24.x",
 		"npm": "6.x"
 	},
 	"keywords": [],
